@@ -124,8 +124,50 @@ public class CaptchaTest {
     }
 
     @Test
-    public void toStringShouldValid(){
+    public void firstPatternToStringShouldBeOnePlus1(){
         Captcha captcha = new Captcha(1,1,1,1);
         Assert.assertEquals("One + 1",captcha.toString());
+    }
+
+    @Test
+    public void firstPatternToStringShouldBeOneMultiply1(){
+        Captcha captcha = new Captcha(1,1,2,1);
+        Assert.assertEquals("One * 1",captcha.toString());
+    }
+
+    @Test
+    public void firstpatternToStringShouldBeOneMinus1(){
+        Captcha captcha = new Captcha(1,1,3,1);
+        Assert.assertEquals("One - 1",captcha.toString());
+    }
+
+    @Test
+    public void firstPatternToStringShouldBeOneDevide1(){
+        Captcha captcha = new Captcha(1,1,4,1);
+        Assert.assertEquals("One / 1",captcha.toString());
+    }
+
+    @Test
+    public void secondPatternToStringShouldBe1PlusOne(){
+        Captcha captcha = new Captcha(2,1,1,1);
+        Assert.assertEquals("1 + One",captcha.toString());
+    }
+
+    @Test
+    public void secondPatternToStringShouldBe1MultiplyOne(){
+        Captcha captcha = new Captcha(2,1,2,1);
+        Assert.assertEquals("1 * One",captcha.toString());
+    }
+
+    @Test
+    public void secondPatternToStringShouldBe1MinusOne(){
+        Captcha captcha = new Captcha(2,1,3,1);
+        Assert.assertEquals("1 - One",captcha.toString());
+    }
+
+    @Test
+    public void secondPatternToStringShouldBe1DevideOne(){
+        Captcha captcha = new Captcha(2,1,4,1);
+        Assert.assertEquals("1 / One",captcha.toString());
     }
 }
