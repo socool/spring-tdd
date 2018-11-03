@@ -1,5 +1,7 @@
 package com.tdd.demo;
 
+import java.util.Arrays;
+
 public class Captcha {
     private int pattern;
     private int leftOperand;
@@ -49,14 +51,25 @@ public class Captcha {
     }
 
     public String getLeft() {
-        return this.numberString[this.getLeftOperand()-1];
+        if(this.getPattern() == 1)
+            return this.numberString[this.getLeftOperand()-1];
+        else
+            return String.valueOf(this.getLeftOperand());
     }
 
     public String getRight() {
-        return String.valueOf(this.rightOperand);
+        if(this.getPattern() == 1)
+            return String.valueOf(this.rightOperand);
+        else
+            return this.numberString[this.rightOperand-1];
     }
 
     public String getStringOperator() {
         return this.operatorString[this.operator-1];
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s %s",this.getLeft(),this.getStringOperator(),this.getRight());
     }
 }
