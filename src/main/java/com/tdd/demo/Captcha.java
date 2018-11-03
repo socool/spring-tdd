@@ -1,7 +1,5 @@
 package com.tdd.demo;
 
-import java.util.Arrays;
-
 public class Captcha {
     private int pattern;
     private int leftOperand;
@@ -10,6 +8,25 @@ public class Captcha {
 
     private String[] numberString = {"One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
     private String[] operatorString = {"+","*","-","/"};
+
+    /**
+     * SOLID
+     * S = Single Responsibility Principle
+     * O = Open/Closed Principle
+     * L = Liskov Substitution Principle
+     * I = Interface Segregation Principle
+     * D = Dependency Inversion
+     * @param pattern
+     * @param leftOperand
+     * @param operator
+     * @param rightOperand
+     */
+    public Captcha(int pattern, int leftOperand, int operator, int rightOperand) {
+        this.setPattern(pattern);
+        this.setLeftOperand(leftOperand);
+        this.setOperator(operator);
+        this.setRightOperand(rightOperand);
+    }
 
     public int getPattern() {
         return pattern;
@@ -27,10 +44,6 @@ public class Captcha {
         this.leftOperand = leftOperand;
     }
 
-    public int getOperator() {
-        return operator;
-    }
-
     public void setOperator(int operator) {
         this.operator = operator;
     }
@@ -41,13 +54,6 @@ public class Captcha {
 
     public void setRightOperand(int rightOperand) {
         this.rightOperand = rightOperand;
-    }
-
-    public Captcha(int pattern, int leftOperand, int operator, int rightOperand) {
-        this.setPattern(pattern);
-        this.setLeftOperand(leftOperand);
-        this.setOperator(operator);
-        this.setRightOperand(rightOperand);
     }
 
     public String getLeft() {
@@ -64,12 +70,12 @@ public class Captcha {
             return this.numberString[this.rightOperand-1];
     }
 
-    public String getStringOperator() {
+    public String getOperator() {
         return this.operatorString[this.operator-1];
     }
 
     @Override
     public String toString() {
-        return String.format("%s %s %s",this.getLeft(),this.getStringOperator(),this.getRight());
+        return String.format("%s %s %s",this.getLeft(),this.getOperator(),this.getRight());
     }
 }

@@ -56,28 +56,28 @@ public class CaptchaTest {
     @Test
     public void firstPatternOperatorShouldBePlus(){
         Captcha captcha = new Captcha(1,leftDummy,1,rightDummy);
-        String expected = captcha.getStringOperator();
+        String expected = captcha.getOperator();
         Assert.assertEquals("+",expected);
     }
 
     @Test
     public void firstPatternOperatorShouldBeMultiply(){
         Captcha captcha = new Captcha(1,leftDummy,2,rightDummy);
-        String expected = captcha.getStringOperator();
+        String expected = captcha.getOperator();
         Assert.assertEquals("*",expected);
     }
 
     @Test
     public void firstPatternOperatorShouldBeMinus(){
         Captcha captcha = new Captcha(1,leftDummy,3,rightDummy);
-        String expected = captcha.getStringOperator();
+        String expected = captcha.getOperator();
         Assert.assertEquals("-",expected);
     }
 
     @Test
     public void firstPatternOperatorShouldBeDevide(){
         Captcha captcha = new Captcha(1,leftDummy,4,rightDummy);
-        String expected = captcha.getStringOperator();
+        String expected = captcha.getOperator();
         Assert.assertEquals("/",expected);
     }
 
