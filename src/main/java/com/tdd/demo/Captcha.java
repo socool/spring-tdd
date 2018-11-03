@@ -5,10 +5,6 @@ public class Captcha {
     private int leftOperand;
     private int operator;
     private int rightOperand;
-
-    private String[] numberString = {"One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
-    private String[] operatorString = {"+","*","-","/"};
-
     /**
      * SOLID
      * S = Single Responsibility Principle
@@ -56,22 +52,22 @@ public class Captcha {
         this.rightOperand = rightOperand;
     }
 
-    public String getLeft() {
+    public Operand getLeft() {
         if(this.getPattern() == 1)
-            return this.numberString[this.getLeftOperand()-1];
+            return new StringOperand(this.getLeftOperand());
         else
-            return String.valueOf(this.getLeftOperand());
+            return new IntegerOperand(this.getLeftOperand());
     }
 
-    public String getRight() {
+    public Operand getRight() {
         if(this.getPattern() == 1)
-            return String.valueOf(this.rightOperand);
+            return new IntegerOperand(this.getRightOperand());
         else
-            return this.numberString[this.rightOperand-1];
+            return new StringOperand(this.getRightOperand());
     }
 
-    public String getOperator() {
-        return this.operatorString[this.operator-1];
+    public Operator getOperator() {
+        return new Operator(this.operator);
     }
 
     @Override
