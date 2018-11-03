@@ -53,17 +53,11 @@ public class Captcha {
     }
 
     public Operand getLeft() {
-        if(this.getPattern() == 1)
-            return new StringOperand(this.getLeftOperand());
-        else
-            return new IntegerOperand(this.getLeftOperand());
+        return OperandFactory.getLeft(this.getPattern(),this.getLeftOperand());
     }
 
     public Operand getRight() {
-        if(this.getPattern() == 1)
-            return new IntegerOperand(this.getRightOperand());
-        else
-            return new StringOperand(this.getRightOperand());
+        return OperandFactory.getRight(this.getPattern(),this.getRightOperand());
     }
 
     public Operator getOperator() {
