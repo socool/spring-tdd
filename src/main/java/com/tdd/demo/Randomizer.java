@@ -4,10 +4,11 @@ import java.util.Random;
 
 public class Randomizer {
     private final int MAX_OPERAND=9;
+    private final int MIN_OPERAND=1;
     private Random random;
 
     public Randomizer(){
-
+        this.setRandom(new Random());
     }
     public Randomizer(Random random){
         this.setRandom(random);
@@ -27,7 +28,7 @@ public class Randomizer {
 
     public int getOperand() throws IndexOutOfBoundsException{
         int result = this.random.nextInt(MAX_OPERAND)+1;
-        if(result>MAX_OPERAND)
+        if(result > MAX_OPERAND || result < MIN_OPERAND)
             throw new IndexOutOfBoundsException("error");
         return result;
     }

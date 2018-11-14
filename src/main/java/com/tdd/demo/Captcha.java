@@ -5,6 +5,9 @@ public class Captcha {
     private int leftOperand;
     private int operator;
     private int rightOperand;
+    public Captcha(){
+
+    }
     /**
      * SOLID
      * S = Single Responsibility Principle
